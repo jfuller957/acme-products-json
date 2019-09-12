@@ -32,12 +32,18 @@ input, button{
             price: '',
             error: ''
           };
+          this.createProduct = this.createProduct.bind(this);
+        }
+        async createProduct() {
+          const products = [...this.state.products, (await axios.post('/api/products', {name: this.state.name, price: this.state.price})).data];
+          this.setState({ products });
         }
         async componentDidMount(){
           this.setState({ products: ( await axios.get('/api/products')).data});
         }
         render(){
           const { products, name, error, price } = this.state;
+          const { createProduct } = this;
           return (
             <div>
               <h1>Acme Products</h1>
@@ -45,7 +51,7 @@ input, button{
               <div className='form'>
                 <input placeholder='Product Name' value={ name } onChange={ ev => this.setState({ name: ev.target.value })}/>
                 <input value={ price } placeholder='Product Price' onChange={ ev => this.setState({ price: ev.target.value })}/>
-                <button onClick={()=> console.log('TODO Create')}>Create</button>
+                <button onClick={ createProduct }>Create</button>
               </div>
               <ul>
                 {
