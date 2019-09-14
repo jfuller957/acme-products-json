@@ -23,7 +23,7 @@ module.exports = (FILE, validator) => {
             resolve(JSON.parse(data.toString()));
           }
           catch(ex){
-            reject(ex);
+            reject(err);
           }
         }
         else {
@@ -47,9 +47,9 @@ module.exports = (FILE, validator) => {
         if(error){
           throw ({ message: error });
         }
-        const maxId = items.reduce((acc, items)=> {
-          if(items.id > acc){
-            acc = items.id;
+        const maxId = items.reduce((acc, item)=> {
+          if(item.id > acc){
+            acc = item.id;
           }
           return acc;
         }, 0);

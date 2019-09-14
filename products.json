@@ -1,6 +1,27 @@
 [
   {
-    "name": "Bar",
-    "price": "$4.00"
+    "name": "Test",
+    "price": "$1.00",
+    "id": 1
+  },
+  {
+    "name": "Test 2",
+    "price": "$2.00",
+    "id": 2
+  },
+  {
+    "name": "Test 3",
+    "price": "$3.00",
+    "id": 3
+  },
+  {
+    "name": "Test 4",
+    "price": "$4.00",
+    "id": 4
+  },
+  {
+    "name": "Test 5",
+    "price": "$5.00",
+    "id": 5
   }
 ]
